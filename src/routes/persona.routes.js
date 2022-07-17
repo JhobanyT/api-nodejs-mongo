@@ -11,8 +11,8 @@ router.get('/', personasCtrl.getPersonas)
 router.get("/:personaId", personasCtrl.getPersonaById)
 
 router.put("/:personaId", [authJwt.verifyToken, authJwt.isAdmin], personasCtrl.updatePersonaById);
-  
+
 router.delete("/:personaId", [authJwt.verifyToken, authJwt.isAdmin], personasCtrl.deletePersonaById);
-  
+
 
 export default router;

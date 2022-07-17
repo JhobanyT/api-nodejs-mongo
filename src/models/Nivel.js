@@ -1,13 +1,14 @@
 import { Schema, model } from "mongoose";
 
-const cargoSchema = new Schema(
+const nivelSchema = new Schema(
     {
-        id_cargo: Number,
+        id_nivel: Number,
         nombre: String,
+        descripcion: String,
     },
     {
         timestamps: true,
         versionKey: false
     }
 );
-export default model('Cargo', cargoSchema);
+export default model('Nivel', nivelSchema);

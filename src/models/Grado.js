@@ -1,13 +1,14 @@
 import { Schema, model } from "mongoose";
 
-const cargoSchema = new Schema(
+const gradoSchema = new Schema(
     {
-        id_cargo: Number,
+        id_grado: Number,
         nombre: String,
+
     },
     {
         timestamps: true,
         versionKey: false
     }
 );
-export default model('Cargo', cargoSchema);
+export default model('Grado', gradoSchema);
