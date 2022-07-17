@@ -2,10 +2,19 @@ import { Schema, model } from "mongoose";
 
 const detalle_itemSchema = new Schema(
     {
-        id_detalle_item: Number,
-        id_item: Number,
+        item: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Item",
+            },
+        ],
         nombre: String,
-        id_nivel: Number,
+        nivel: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Nivel",
+            },
+        ],
     },
     {
         timestamps: true,

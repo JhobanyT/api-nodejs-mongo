@@ -12,7 +12,7 @@ router.get("/:empresaId", empresaCtrl.getEmpresaById)
 
 router.put("/:empresaId", [authJwt.verifyToken, authJwt.isEstudiante, authJwt.isSecretaria, authJwt.isCoordinador, authJwt.isAdmin], empresaCtrl.updateEmpresaById);
 
-router.delete("/:empresaId", [authJwt.verifyToken, authJwt.isEstudiante, authJwt.isSecretaria, authJwt.isCoordinador, authJwt.isAdmin], empresaCtrl.deleteEmpresaById);
+router.delete("/:empresaId", [authJwt.verifyToken, authJwt.isSecretaria, authJwt.isCoordinador, authJwt.isAdmin], empresaCtrl.deleteEmpresaById);
 
 
 export default router;

@@ -1,19 +1,18 @@
 import { Schema, model } from "mongoose";
 
-const estudianteSchema = new Schema(
+const inicioSchema = new Schema(
     {
-        codigo: Number,
-        persona: [
+        solicitud: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Persona",
+                ref: "Solicitud",
             },
         ],
-        ciclo: String
+        estado: String,
     },
     {
         timestamps: true,
         versionKey: false
     }
 );
-export default model('Estudiante', estudianteSchema);
+export default model('Inicio', inicioSchema);

@@ -1,24 +1,24 @@
 import { Schema, model } from "mongoose";
 
-const evaluadorSchema = new Schema(
+const detalle_inicioSchema = new Schema(
     {
-        dni: Number,
-        grado: [
+        inicio: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Grado",
+                ref: "Inicio",
             },
         ],
-        persona: [
+        documento: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Persona",
+                ref: "Documento",
             },
         ],
+        path: String,
     },
     {
         timestamps: true,
         versionKey: false
     }
 );
-export default model('Evaluador', evaluadorSchema);
+export default model('Detalle_inicio', detalle_inicioSchema);

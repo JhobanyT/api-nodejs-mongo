@@ -18,6 +18,14 @@ import nivelRoutes from './routes/nivel.routes'
 import notaRoutes from './routes/nota.routes'
 import authRoutes from './routes/auth.routes'
 import usersRoutes from './routes/user.routes'
+import solicitudRoutes from './routes/solicitud.routes'
+import inicioRoutes from './routes/inicio.routes'
+import practicaRoutes from './routes/practica.routes'
+import finalRoutes from './routes/final.routes'
+import documentoRoutes from './routes/documento.routes'
+import detalle_inicioRoutes from './routes/detalle_inicio.routes'
+import visitaRoutes from './routes/visita.routes'
+import estadoRoutes from './routes/estado.routes'
 
 
 const app = express();
@@ -52,5 +60,16 @@ app.use('/api/nivel', nivelRoutes)
 app.use('/api/nota', notaRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/users', usersRoutes)
+app.use('/api/solicitud', solicitudRoutes)
+app.use('/api/inicio', inicioRoutes)
+app.use('/api/practica', practicaRoutes)
+app.use('/api/final', finalRoutes)
+app.use('/api/documento', documentoRoutes)
+app.use('/api/detalle_inicio', detalle_inicioRoutes)
+app.use('/api/visita', visitaRoutes)
+app.use('/api/estado', estadoRoutes)
+
+
+
 
 export default app;

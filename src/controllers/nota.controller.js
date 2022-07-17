@@ -1,12 +1,12 @@
 import Nota from '../models/Nota'
 
 export const createNota = async (req, res) => {
-    const {id_item_descripcion, id_detalle_item} = req.body;
+    const {item_nota, detalle_item} = req.body;
 
     try {
     const newNota = new Nota({
-        id_item_descripcion,
-        id_detalle_item,
+        item_nota,
+        detalle_item,
     });
 
     const notaSaved = await newNota.save();

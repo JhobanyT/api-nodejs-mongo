@@ -1,12 +1,12 @@
 import Estudiante from '../models/Estudiante'
 
 export const createEstudiante = async (req, res) => {
-    const {codigo, id_persona, ciclo} = req.body;
+    const {codigo, persona, ciclo} = req.body;
 
     try {
     const newEstudiante = new Estudiante({
         codigo,
-        id_persona,
+        persona,
         ciclo,
     });
 
