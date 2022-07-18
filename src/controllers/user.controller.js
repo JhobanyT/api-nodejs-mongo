@@ -1,4 +1,4 @@
 
 export const createUser = (req, res) => {
-    res.json('creando usuario')
+    res.json('Usuario Creado')
 }

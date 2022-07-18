@@ -1,12 +1,12 @@
 import Item_nota from '../models/Item_nota'
 
 export const createItem_nota = async (req, res) => {
-    const {id_visita, id_item} = req.body;
+    const {visita, item} = req.body;
 
     try {
     const newItem_nota = new Item_nota({
-        id_visita,
-        id_item,
+        visita,
+        item,
     });
 
     const item_notaSaved = await newItem_nota.save();

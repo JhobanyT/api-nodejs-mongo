@@ -1,13 +1,12 @@
 import { Schema, model } from "mongoose";
 
-const gradoSchema = new Schema(
+const documentoSchema = new Schema(
     {
         nombre: String,
-
     },
     {
         timestamps: true,
         versionKey: false
     }
 );
-export default model('Grado', gradoSchema);
+export default model('Documento', documentoSchema);

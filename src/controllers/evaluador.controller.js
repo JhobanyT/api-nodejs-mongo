@@ -1,13 +1,13 @@
 import Evaluador from '../models/Evaluador'
 
 export const createEvaluador = async (req, res) => {
-    const {dni, id_grado, id_persona} = req.body;
+    const {dni, grado, persona} = req.body;
 
     try {
     const newEvaluador = new Evaluador({
         dni,
-        id_grado,
-        id_persona,
+        grado,
+        persona,
     });
 
     const evaluadorSaved = await newEvaluador.save();

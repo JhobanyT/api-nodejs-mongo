@@ -1,13 +1,13 @@
 import Detalle_item from '../models/Detalle_item'
 
 export const createDetalle_item = async (req, res) => {
-    const {id_item, nombre, id_nivel} = req.body;
+    const {item, nombre, nivel} = req.body;
 
     try {
     const newDetalle_item  = new Detalle_item ({
-        id_item,
+        item,
         nombre,
-        id_nivel,
+        nivel,
     });
 
     const detalle_itemSaved = await newDetalle_item.save();

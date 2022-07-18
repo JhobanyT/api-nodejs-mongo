@@ -1,30 +1,34 @@
 import { Schema, model } from "mongoose";
 
-const empresa_cargoSchema = new Schema(
+const visitaSchema = new Schema(
     {
-        empresa: [
+        practica: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Empresa",
+                ref: "Practica",
             },
         ],
-        cargo: [
+        fecha: {
+            dia: Number,
+            mes: Number,
+            anio: Number
+        },
+        evaluador: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Cargo",
+                ref: "Evaluador",
             },
         ],
-        persona: [
+        estado: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Persona",
+                ref: "Estado",
             },
         ],
-        estado: Boolean,
     },
     {
         timestamps: true,
         versionKey: false
     }
 );
-export default model('Empresa_cargo', empresa_cargoSchema);
+export default model('Visita', visitaSchema);

@@ -2,9 +2,18 @@ import { Schema, model } from "mongoose";
 
 const item_notaSchema = new Schema(
     {
-        id_item_descripcion: Number,
-        id_visita: Number,
-        id_item: Number,
+        visita: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Visita",
+            },
+        ],
+        item: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Item",
+            },
+        ],
     },
     {
         timestamps: true,

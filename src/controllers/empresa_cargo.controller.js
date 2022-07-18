@@ -1,13 +1,13 @@
 import Empresa_cargo from '../models/Empresa_cargo'
 
 export const createEmpresa_cargo = async (req, res) => {
-    const { id_empresa, id_cargo, id_persona, estado} = req.body;
+    const { empresa, cargo, persona, estado} = req.body;
 
     try {
     const newEmpresa_cargo = new Empresa_cargo({
-        id_empresa,
-        id_cargo,
-        id_persona,
+        empresa,
+        cargo,
+        persona,
         estado,
     });
 

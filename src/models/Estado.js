@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const gradoSchema = new Schema(
+const estadoSchema = new Schema(
     {
         nombre: String,
 
@@ -10,4 +10,4 @@ const gradoSchema = new Schema(
         versionKey: false
     }
 );
-export default model('Grado', gradoSchema);
+export default model('Estado', estadoSchema);
