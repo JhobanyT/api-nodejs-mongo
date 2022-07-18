@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import pkg from "../package.json";
+import cors from "cors"
 
 import { createRoles } from "./libs/initialSetup";
 
@@ -17,6 +18,9 @@ import itemRoutes from './routes/item.routes'
 import nivelRoutes from './routes/nivel.routes'
 import notaRoutes from './routes/nota.routes'
 import authRoutes from './routes/auth.routes'
+<<<<<<< HEAD
+import userRoutes from './routes/user.routes'
+=======
 import usersRoutes from './routes/user.routes'
 import solicitudRoutes from './routes/solicitud.routes'
 import inicioRoutes from './routes/inicio.routes'
@@ -26,6 +30,7 @@ import documentoRoutes from './routes/documento.routes'
 import detalle_inicioRoutes from './routes/detalle_inicio.routes'
 import visitaRoutes from './routes/visita.routes'
 import estadoRoutes from './routes/estado.routes'
+>>>>>>> 9892578cf2c1c65702967a538b698a692d6b49a2
 
 
 const app = express();
@@ -33,15 +38,16 @@ createRoles();
 // Settings
 app.set("pkg", pkg);
 app.use(morgan("dev"));
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({
     message: "API Practicas PreProfesionales",
-    name: app.get("pkg").name,
-    version: app.get("pkg").version,
-    description: app.get("pkg").description,
-    author: app.get("pkg").author,
+    // name: app.get("pkg").name,
+    // version: app.get("pkg").version,
+    // description: app.get("pkg").description,
+    // author: app.get("pkg").author,
   });
 });
 
@@ -59,6 +65,9 @@ app.use('/api/item', itemRoutes)
 app.use('/api/nivel', nivelRoutes)
 app.use('/api/nota', notaRoutes)
 app.use('/api/auth', authRoutes)
+<<<<<<< HEAD
+app.use('/api/user', userRoutes)
+=======
 app.use('/api/users', usersRoutes)
 app.use('/api/solicitud', solicitudRoutes)
 app.use('/api/inicio', inicioRoutes)
@@ -71,5 +80,6 @@ app.use('/api/estado', estadoRoutes)
 
 
 
+>>>>>>> 9892578cf2c1c65702967a538b698a692d6b49a2
 
 export default app;
