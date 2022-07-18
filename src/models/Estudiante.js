@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 const estudianteSchema = new Schema(
     {
-        codigo: Number,
+        codigo: String,
         persona: [
             {
                 type: Schema.Types.ObjectId,
