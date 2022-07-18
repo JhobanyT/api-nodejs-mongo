@@ -9,6 +9,7 @@ router.post('/', [authJwt.verifyToken, authJwt.isAdmin], solicitudCtrl.createSol
 router.get('/', solicitudCtrl.getSolicitud)
 
 router.get("/:solicitudId", solicitudCtrl.getSolicitudById)
+// router.get("/:solicitud/estudiante", solicitudCtrl.getSolicitudesByEstudiante)
 
 router.put("/:solicitudId", [authJwt.verifyToken, authJwt.isAdmin, authJwt.isSecretaria], solicitudCtrl.updateSolicitudById);
 
