@@ -26,13 +26,14 @@ import documentoRoutes from './routes/documento.routes'
 import detalle_inicioRoutes from './routes/detalle_inicio.routes'
 import visitaRoutes from './routes/visita.routes'
 import estadoRoutes from './routes/estado.routes'
-
+import cors from 'cors'
 
 const app = express();
 createRoles();
 // Settings
 app.set("pkg", pkg);
 app.use(morgan("dev"));
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
