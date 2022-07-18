@@ -4,7 +4,7 @@ const router = Router()
 import * as gradoCtrl from '../controllers/grado.controller'
 import { authJwt } from '../middlewares'
 
-router.post('/', [authJwt.verifyToken, authJwt.isAdmin, authJwt.isEvaluador, authJwt.isCoordinador], gradoCtrl.createGrado)
+router.post('/', [authJwt.verifyToken, authJwt.isAdmin, authJwt.isCoordinador], gradoCtrl.createGrado)
 
 router.get('/', gradoCtrl.getGrado)
 

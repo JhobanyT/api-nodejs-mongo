@@ -4,7 +4,7 @@ const router = Router()
 import * as cargoCtrl from '../controllers/cargo.controller'
 import { authJwt } from '../middlewares'
 
-router.post('/', [authJwt.verifyToken, authJwt.isAdmin, authJwt.isCoordinador, authJwt.isSecretaria], cargoCtrl.createCargo)
+router.post('/', [authJwt.verifyToken, authJwt.isAdmin, authJwt.isCoordinador], cargoCtrl.createCargo)
 
 router.get('/', cargoCtrl.getCargo)
 
