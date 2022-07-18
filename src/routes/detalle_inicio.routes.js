@@ -4,7 +4,7 @@ const router = Router()
 import * as detalle_inicioCtrl from '../controllers/detalle_inicio.controller'
 import { authJwt } from '../middlewares'
 
-router.post('/', [authJwt.verifyToken, authJwt.isEstudiante, authJwt.isSecretaria, authJwt.isCoordinador, authJwt.isAdmin], detalle_inicioCtrl.createDetalle_inicio)
+router.post('/', [authJwt.verifyToken, authJwt.isAdmin, authJwt.isEstudiante, authJwt.isSecretaria, authJwt.isCoordinador], detalle_inicioCtrl.createDetalle_inicio)
 
 router.get('/', detalle_inicioCtrl.getDetalle_inicio)
 

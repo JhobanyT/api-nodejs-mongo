@@ -18,10 +18,7 @@ import itemRoutes from './routes/item.routes'
 import nivelRoutes from './routes/nivel.routes'
 import notaRoutes from './routes/nota.routes'
 import authRoutes from './routes/auth.routes'
-<<<<<<< HEAD
 import userRoutes from './routes/user.routes'
-=======
-import usersRoutes from './routes/user.routes'
 import solicitudRoutes from './routes/solicitud.routes'
 import inicioRoutes from './routes/inicio.routes'
 import practicaRoutes from './routes/practica.routes'
@@ -30,7 +27,6 @@ import documentoRoutes from './routes/documento.routes'
 import detalle_inicioRoutes from './routes/detalle_inicio.routes'
 import visitaRoutes from './routes/visita.routes'
 import estadoRoutes from './routes/estado.routes'
->>>>>>> 9892578cf2c1c65702967a538b698a692d6b49a2
 
 
 const app = express();
@@ -65,10 +61,7 @@ app.use('/api/item', itemRoutes)
 app.use('/api/nivel', nivelRoutes)
 app.use('/api/nota', notaRoutes)
 app.use('/api/auth', authRoutes)
-<<<<<<< HEAD
 app.use('/api/user', userRoutes)
-=======
-app.use('/api/users', usersRoutes)
 app.use('/api/solicitud', solicitudRoutes)
 app.use('/api/inicio', inicioRoutes)
 app.use('/api/practica', practicaRoutes)
@@ -77,9 +70,5 @@ app.use('/api/documento', documentoRoutes)
 app.use('/api/detalle_inicio', detalle_inicioRoutes)
 app.use('/api/visita', visitaRoutes)
 app.use('/api/estado', estadoRoutes)
-
-
-
->>>>>>> 9892578cf2c1c65702967a538b698a692d6b49a2
 
 export default app;
