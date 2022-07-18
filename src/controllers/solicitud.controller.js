@@ -38,54 +38,6 @@ export const getSolicitudById = async (req, res) => {
     res.status(200).json(solicitud);
 };
 
-export const getSolicitudesByEstudiante = async (req, res) => {
-    const { estudianteName } = req.query;
-    Solicitud
-      .find({
-        estudiante: { $not: { $size: 0 } }
-      })
-      .populate({ path: 'estudiante', match: { codigo: estudianteCodigo } //.populate({ path: 'empresa', match: { name: empresaName } }) 
-        }) 
-      
-      .exec((err, solicitudes) => {
-        if (err) {
-          console.log(err);
-          return res.send(err.message);
-        }
-        const solicitudesByEstudiante = solicitudes.filter(
-          (solicitud) => solicitud.estudiante.length > 0
-        );
-
-        res.json(solicitudesByEstudiante);
-      });
-  };
-
-  export const getSolicitudesByEmpresa = async (req, res) => {
-    const { empresaName } = req.query;
-    Solicitud
-      .find({
-        empresa: { $not: { $size: 0 } },
-      })
-      .populate('estudiante')
-      .populate('empresa')
-      .populate({ path: 'empresa', match: { ruc: empresaRuc }, //.populate({ path: 'empresa', match: { name: empresaName } }) 
-        }) 
-      
-      .exec((err, solicitudes) => {
-        if (err) {
-          console.log(err);
-          return res.send(err.message);
-        }
-        const solicitudesByEmpresa = solicitudes.filter(
-          (solicitud) => solicitud.empresas.length >= 0
-        );
-
-        res.json(getSolicitudesByEmpresa);
-      });
-  };
-
-  
-
 export const updateSolicitudById = async (req, res) => {
     const updatedSolicitud = await Persona.findByIdAndUpdate(
         req.params.solicitudId,
@@ -105,3 +57,47 @@ export const deleteSolicitudById = async (req, res) => {
     // code 200 is ok too
     res.status(200).json();
 };
+
+// export const getSolicitudesByEstudiante = async (req, res) => {
+//     const { estudianteName } = req.query;
+//     Solicitud
+//       .find({
+//         estudiante: { $not: { $size: 0 } }
+//       })
+//       .populate({ path: 'estudiante', match: { codigo: estudianteCodigo } //.populate({ path: 'empresa', match: { name: empresaName } }) 
+//         }) 
+      
+//       .exec((err, solicitudes) => {
+//         if (err) {
+//           console.log(err);
+//           return res.send(err.message);
+//         }
+//         const solicitudesByEstudiante = solicitudes.filter(
+//           (solicitud) => solicitud.estudiante.length > 0
+//         );
+
+//         res.json(solicitudesByEstudiante);
+//       });
+//   };
+
+//   export const getSolicitudesByEmpresa = async (req, res) => {
+//     const { empresaName } = req.query;
+//     Solicitud
+//       .find({
+//         empresa: { $not: { $size: 0 } },
+//       })
+//       .populate({ path: 'empresa', match: { ruc: empresaRuc }, //.populate({ path: 'empresa', match: { name: empresaName } }) 
+//         }) 
+      
+//       .exec((err, solicitudes) => {
+//         if (err) {
+//           console.log(err);
+//           return res.send(err.message);
+//         }
+//         const solicitudesByEmpresa = solicitudes.filter(
+//           (solicitud) => solicitud.empresas.length >= 0
+//         );
+
+//         res.json(getSolicitudesByEmpresa);
+//       });
+//   };
