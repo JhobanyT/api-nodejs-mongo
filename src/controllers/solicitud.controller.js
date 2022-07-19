@@ -34,7 +34,10 @@ export const getSolicitud = async (req, res) => {
 export const getSolicitudById = async (req, res) => {
     const { solicitudId } = req.params;
 
-    const solicitud = await Solicitud.findById(solicitudId);
+    const solicitud = await Solicitud
+    .findById(solicitudId)
+    .populate('empresa')
+    .populate('estudiante')
     res.status(200).json(solicitud);
 };
 

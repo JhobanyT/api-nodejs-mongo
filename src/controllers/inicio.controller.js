@@ -21,6 +21,7 @@ export const createInicio = async (req, res) => {
 
 export const getInicio = async (req, res) => {
     const inicio = await Inicio.find()
+    .populate('solicitud')
     res.json(inicio)
 };
 
