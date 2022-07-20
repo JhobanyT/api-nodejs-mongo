@@ -28,7 +28,8 @@ export const getEstudiante = async (req, res) => {
 export const getEstudianteById = async (req, res) => {
     const { estudianteId } = req.params;
 
-    const estudiante = await Estudiante.findById(estudianteId);
+    const estudiante = await Estudiante.findById(estudianteId)
+    .populate('persona')
     res.status(200).json(estudiante);
 };
 

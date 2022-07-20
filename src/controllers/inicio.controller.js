@@ -28,7 +28,8 @@ export const getInicio = async (req, res) => {
 export const getInicioById = async (req, res) => {
     const { inicioId } = req.params;
 
-    const inicio = await Inicio.findById(inicioId);
+    const inicio = await Inicio.findById(inicioId)
+    .populate('solicitud')
     res.status(200).json(inicio);
 };
 

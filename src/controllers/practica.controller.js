@@ -31,13 +31,15 @@ export const createPractica = async (req, res) => {
 
 export const getPractica = async (req, res) => {
     const practica = await Practica.find()
+    .populate('inicio')
     res.json(practica)
 };
 
 export const getPracticaById = async (req, res) => {
     const { practicaId } = req.params;
 
-    const practica = await Practica.findById(practicaId);
+    const practica = await Practica.findById(practicaId)
+    .populate('inicio')
     res.status(200).json(practica);
 };
 

@@ -21,13 +21,17 @@ export const createFinal = async (req, res) => {
 
 export const getFinal = async (req, res) => {
     const final = await Final.find()
+    .populate('practica')
+    .populate('documento')
     res.json(final)
 };
 
 export const getFinalById = async (req, res) => {
     const { finalId } = req.params;
 
-    const final = await Final.findById(finalId);
+    const final = await Final.findById(finalId)
+    .populate('practica')
+    .populate('documento')
     res.status(200).json(final);
 };
 

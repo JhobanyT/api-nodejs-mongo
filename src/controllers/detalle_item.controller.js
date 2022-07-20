@@ -21,13 +21,17 @@ export const createDetalle_item = async (req, res) => {
 
 export const getDetalle_item = async (req, res) => {
     const detalle_item = await Detalle_item.find()
+    .populate('item')
+    .populate('nivel')
     res.json(detalle_item)
 };
 
 export const getDetalle_itemById = async (req, res) => {
     const { detalle_itemId } = req.params;
 
-    const detalle_item = await Detalle_item.findById(detalle_itemId);
+    const detalle_item = await Detalle_item.findById(detalle_itemId)
+    .populate('item')
+    .populate('nivel')
     res.status(200).json(detalle_item);
 };
 

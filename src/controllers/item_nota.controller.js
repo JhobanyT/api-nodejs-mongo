@@ -20,13 +20,17 @@ export const createItem_nota = async (req, res) => {
 
 export const getItem_nota= async (req, res) => {
     const item_nota = await Item_nota.find()
+    .populate('visita')
+    .populate('item')
     res.json(item_nota)
 };
 
 export const getItem_notaById = async (req, res) => {
     const { item_notaId } = req.params;
 
-    const item_nota = await Item_nota.findById(item_notaId);
+    const item_nota = await Item_nota.findById(item_notaId)
+    .populate('visita')
+    .populate('item')
     res.status(200).json(item_nota);
 };
 
