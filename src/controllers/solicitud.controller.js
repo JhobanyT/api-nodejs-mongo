@@ -28,6 +28,10 @@ export const getSolicitud = async (req, res) => {
     // .find({ estado: -1})
     .populate('estudiante')
     .populate('empresa')
+    .populate({
+        path    : 'estudiante',
+        populate: 'persona'
+   });
     res.json(solicitud)
 };
 

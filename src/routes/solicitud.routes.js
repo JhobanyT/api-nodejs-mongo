@@ -4,7 +4,7 @@ const router = Router()
 import * as solicitudCtrl from '../controllers/solicitud.controller'
 import { authJwt } from '../middlewares'
 
-router.post('/', [authJwt.verifyToken, authJwt.isAdmin], solicitudCtrl.createSolicitud)
+router.post('/', solicitudCtrl.createSolicitud)
 
 router.get('/', solicitudCtrl.getSolicitud)
 
