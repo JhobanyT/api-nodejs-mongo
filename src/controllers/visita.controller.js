@@ -1,12 +1,16 @@
 import Visita from '../models/Visita'
 
 export const createVisita = async (req, res) => {
-    const {practica, fecha, evaluador, estado} = req.body;
+    const {practica, dia, mes, anio, evaluador, estado} = req.body;
 
     try {
     const newVisita = new Visita({
         practica,
-        fecha,
+        fecha: {
+            dia,
+            mes,
+            anio,
+        },
         evaluador,
         estado,
     });
@@ -22,13 +26,19 @@ export const createVisita = async (req, res) => {
 
 export const getVisita = async (req, res) => {
     const visita = await Visita.find()
+    .populate('practica')
+    .populate('evaluador')
+    .populate('estado')
     res.json(visita)
 };
 
 export const getVisitaById = async (req, res) => {
     const { visitaId } = req.params;
 
-    const visita = await Visita.findById(visitaId);
+    const visita = await Visita.findById(visitaId)
+    .populate('practica')
+    .populate('evaluador')
+    .populate('estado')
     res.status(200).json(visita);
 };
 

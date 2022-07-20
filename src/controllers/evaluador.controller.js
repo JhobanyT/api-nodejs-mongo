@@ -21,13 +21,17 @@ export const createEvaluador = async (req, res) => {
 
 export const getEvaluador= async (req, res) => {
     const evaluador = await Evaluador.find()
+    .populate('grado')
+    .populate('persona')
     res.json(evaluador)
 };
 
 export const getEvaluadorById = async (req, res) => {
     const { evaluadorId } = req.params;
 
-    const evaluador = await Evaluador.findById(evaluadorId);
+    const evaluador = await Evaluador.findById(evaluadorId)
+    .populate('grado')
+    .populate('persona')
     res.status(200).json(evaluador);
 };
 

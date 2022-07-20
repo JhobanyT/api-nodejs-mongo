@@ -24,7 +24,6 @@ export const getSolicitud = async (req, res) => {
     const solicitud = await Solicitud.find()
     // .find({}, {estado_solicitud: 0})
     // .find({ empresa: -1})
-    
     // .find({ estado: -1})
     .populate('estudiante')
     .populate('empresa')
@@ -68,8 +67,7 @@ export const deleteSolicitudById = async (req, res) => {
 //         estudiante: { $not: { $size: 0 } }
 //       })
 //       .populate({ path: 'estudiante', match: { codigo: estudianteCodigo } //.populate({ path: 'empresa', match: { name: empresaName } }) 
-//         }) 
-      
+//         })
 //       .exec((err, solicitudes) => {
 //         if (err) {
 //           console.log(err);

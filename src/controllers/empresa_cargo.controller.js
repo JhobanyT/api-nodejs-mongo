@@ -22,13 +22,18 @@ export const createEmpresa_cargo = async (req, res) => {
 
 export const getEmpresa_cargo = async (req, res) => {
     const empresa_cargo = await Empresa_cargo.find()
+    .populate('empresa')
+    .populate('cargo')
     res.json(empresa_cargo)
 };
 
 export const getEmpresa_cargoById = async (req, res) => {
     const { empresa_cargoId } = req.params;
 
-    const empresa_cargo = await Empresa_cargo.findById(empresa_cargoId);
+    const empresa_cargo = await Empresa_cargo
+    .findById(empresa_cargoId)
+    .populate('empresa')
+    .populate('cargo')
     res.status(200).json(empresa_cargo);
 };
 

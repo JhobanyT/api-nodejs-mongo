@@ -21,13 +21,17 @@ export const createDetalle_inicio = async (req, res) => {
 
 export const getDetalle_inicio = async (req, res) => {
     const detalle_inicio = await Detalle_inicio.find()
+    .populate('inicio')
+    .populate('documento')
     res.json(detalle_inicio)
 };
 
 export const getDetalle_inicioById = async (req, res) => {
     const { detalle_inicioId } = req.params;
 
-    const detalle_inicio = await Detalle_inicio.findById(detalle_inicioId);
+    const detalle_inicio = await Detalle_inicio.findById(detalle_inicioId)
+    .populate('inicio')
+    .populate('documento')
     res.status(200).json(detalle_inicio);
 };
 
