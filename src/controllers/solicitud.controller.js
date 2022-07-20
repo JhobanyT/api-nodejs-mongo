@@ -31,7 +31,7 @@ export const getSolicitud = async (req, res) => {
     .populate({
         path    : 'estudiante',
         populate: 'persona'
-   });
+    });
     res.json(solicitud)
 };
 
