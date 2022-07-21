@@ -24,6 +24,7 @@ export const getEmpresa_cargo = async (req, res) => {
     const empresa_cargo = await Empresa_cargo.find()
     .populate('empresa')
     .populate('cargo')
+    .populate('persona')
     res.json(empresa_cargo)
 };
 
@@ -34,6 +35,7 @@ export const getEmpresa_cargoById = async (req, res) => {
     .findById(empresa_cargoId)
     .populate('empresa')
     .populate('cargo')
+    .populate('persona')
     res.status(200).json(empresa_cargo);
 };
 

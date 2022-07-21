@@ -41,6 +41,10 @@ export const getSolicitudById = async (req, res) => {
     .findById(solicitudId)
     .populate('empresa')
     .populate('estudiante')
+    .populate({
+        path    : 'estudiante',
+        populate: 'persona'
+    });
     res.status(200).json(solicitud);
 };
 

@@ -4,8 +4,8 @@ const router = Router()
 import * as personasCtrl from '../controllers/persona.controller'
 import { authJwt } from '../middlewares'
 
-router.post('/', [authJwt.verifyToken, authJwt.isAdmin], personasCtrl.createPersona
-);
+router.post('/', [authJwt.verifyToken, authJwt.isAdmin], personasCtrl.createPersona);
+
 router.get('/', personasCtrl.getPersonas)
 
 router.get("/:personaId", personasCtrl.getPersonaById)
