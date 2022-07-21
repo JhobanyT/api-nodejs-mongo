@@ -5,7 +5,6 @@ import pkg from "../package.json";
 import { createRoles } from "./libs/initialSetup";
 
 import cargoRoutes from './routes/cargo.routes'
-import convenioRoutes from './routes/convenio.routes'
 import personasRoutes from './routes/persona.routes'
 import detalle_itemRoutes from './routes/detalle_item.routes'
 import empresaRoutes from './routes/empresa.routes'
@@ -49,7 +48,6 @@ app.get("/", (req, res) => {
 
 
 app.use('/api/cargo', cargoRoutes)
-app.use('/api/convenio', convenioRoutes)
 app.use('/api/persona', personasRoutes)
 app.use('/api/detalle_item', detalle_itemRoutes)
 app.use('/api/empresa', empresaRoutes)

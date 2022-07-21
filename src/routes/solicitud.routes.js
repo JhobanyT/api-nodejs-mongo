@@ -9,7 +9,7 @@ router.post('/', solicitudCtrl.createSolicitud)
 router.get('/', solicitudCtrl.getSolicitud)
 
 router.get("/:solicitudId", solicitudCtrl.getSolicitudById)
-// router.get("/:getSolicitudesByEstudiante", solicitudCtrl.getSolicitudesByEstudiante)
+router.get("/:getSolicitudesByEstudiante", solicitudCtrl.getSolicitudesByEstudiante)
 // router.get("/:getSolicitudesByEmpresa", solicitudCtrl.getSolicitudesByEmpresa)
 
 router.put("/:solicitudId", [authJwt.verifyToken, authJwt.isAdmin, authJwt.isSecretaria], solicitudCtrl.updateSolicitudById);

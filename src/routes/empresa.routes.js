@@ -4,7 +4,7 @@ const router = Router()
 import * as empresaCtrl from '../controllers/empresa.controller'
 import { authJwt } from '../middlewares'
 
-router.post('/', [authJwt.verifyToken, authJwt.isAdmin, authJwt.isCoordinador], empresaCtrl.createEmpresa)
+router.post('/', empresaCtrl.createEmpresa)
 
 router.get('/', empresaCtrl.getEmpresa)
 
